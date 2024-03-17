@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Category from './Category'
-import useTests from '../../hooks/useTests.jsx'
+import { useTestContext } from '../../providers/TestProvider.jsx'
 
 export default function ListCategory() {
-    const {getListTests} = useTests()
+    const {test, getTestList} = useTestContext()
+
+    useEffect(() => {
+        getTestList()
+    }, [])
+    
 
     return (
         <div className='flex flex-col gap-4'>
-            {getListTests().map((item, index) => (
+            {test?.map((item, index) => (
                 <Category key={index} item={item} />
             ))}
         </div>

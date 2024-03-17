@@ -6,6 +6,7 @@ import Layout from './layouts/Layout';
 import Home from './pages/Home';
 import Test from './pages/Test.jsx';
 import Question from './pages/Question.jsx';
+import Answers from './pages/Answers.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path={PATHROUTES.TEST} element={<Test />} />
       <Route path={PATHROUTES.QUESTION} element={<Question />} />
+      <Route path={PATHROUTES.ANSWERS} element={<Answers />} />
     </Route>
   )
 )
