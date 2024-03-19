@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useQuestionContext } from '../providers/QuestionProvider'
 import AnswersItem from '../components/Answers/AnswersItem'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Answers() {
-    const {questions, answers} = useQuestionContext()
+    const { questions, answers } = useQuestionContext()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        (answers.length === 0) && navigate('/')
+    }, [])
+
 
     return (
         <div className="w-full">
-            <h4 className="text-2xl text-center font-bold">Revisión de las respuestas</h4>
+            <div className='flex justify-between items-center my-4'>
+                <h4 className='text-3xl font-bold'>Revisión de las respuestas</h4>
+            </div>
             <ul className="my-6 space-y-3">
                 {
                     questions.map((item, index) => (
-                        <AnswersItem question={item} answer={answers[index]} key={index}/>
+                        <AnswersItem question={item} answer={answers[index]} num={index} key={index} />
                     ))
                 }
             </ul>

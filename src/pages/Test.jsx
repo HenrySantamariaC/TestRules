@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { TimerSolid } from 'iconoir-react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { PATHROUTES, replaceParam } from './../router/routes.js'
 import BackRouteButton from '../components/General/BackRouteButton'
 import { useTestContext } from '../providers/TestProvider.jsx'
+import { useQuestionContext } from '../providers/QuestionProvider.jsx'
 
 export default function Test() {
     const { id } = useParams()
-    const {selectedTest, changeSelectedTest} = useTestContext()
+    const navigate = useNavigate()
+    const { test, selectedTest, changeSelectedTest, getTestList} = useTestContext()
+    const { getQuestionList } = useQuestionContext()
+
+    const loadDataTest = async () => {
+        (test.length === 0) && navigate('/')
+        await changeSelectedTest(id)
+        await getQuestionList()
+    }
 
     useEffect(() => {
-        changeSelectedTest(id)
+        loadDataTest()
     }, [])
 
 

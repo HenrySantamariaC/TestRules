@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import CardQuestion from '../components/Question/CardQuestion'
 import ProgressQuestions from '../components/Question/ProgressQuestions'
 import { useQuestionContext } from '../providers/QuestionProvider'
+import { useNavigate } from 'react-router-dom'
 
 export default function Question() {
-    const {questions, current, getQuestionList, nextQuestion} = useQuestionContext()
+    const {questions, current, nextQuestion} = useQuestionContext()
     const [endTest, setEndTest] = useState(false)
+    const navigate = useNavigate()
 
     const handdleNextQuestion = () => {
         setEndTest((questions?.length - 1) === (current.position + 1))
@@ -13,7 +15,7 @@ export default function Question() {
     }
 
     useEffect(() => {
-        getQuestionList()
+        (questions.length === 0) && navigate('/')
     }, [])
 
     return (
