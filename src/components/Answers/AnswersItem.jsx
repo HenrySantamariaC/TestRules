@@ -43,7 +43,7 @@ export default function AnswersItem(props) {
                         <h3 className='font-bold'>Fundamentación</h3>
                         <div role="alert" className="rounded-xl border-s-4 p-2 border-blue-600 bg-blue-600/30">
                             <span className="mt-2 text-sm">
-                                {question.FUNDAMENTOd}
+                                {question.FUNDAMENTO}
                             </span>
                         </div>
                     </>
