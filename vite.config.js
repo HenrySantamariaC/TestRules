@@ -12,7 +12,8 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         clientsClaim: true,
-        skipWaiting: true
+        skipWaiting: true,
+        sourcemap: true,
       },
       manifest: {
         name: "SimulaTest",
@@ -50,6 +51,9 @@ export default defineConfig({
             purpose: "maskable"
           }
         ],
+      },
+      devOptions: {
+        enabled: true
       }
     })],
 })
