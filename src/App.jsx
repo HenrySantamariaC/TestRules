@@ -1,27 +1,34 @@
-import React from 'react'
-
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import { PATHROUTES } from './router/routes.js'
-import Layout from './layouts/Layout';
-import Home from './pages/Home';
-import Test from './pages/Test.jsx';
-import Question from './pages/Question.jsx';
-import Answers from './pages/Answers.jsx';
+import { PrivateRoutes, PublicRoutes } from './router/routes.js'
+import AuthGuard from './guards/AuthGuard.jsx';
+import AppProvider from './providers/AppProvider.jsx';
+import { Answers, Home, Loader, Login, Profile, Question, Test } from './pages';
+import { Suspense, lazy } from 'react';
+
+const Layout = lazy(() => import ('./layouts/Layout'))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path={PATHROUTES.HOME} element={<Layout />} >
-      <Route index element={<Home />} />
-      <Route path={PATHROUTES.TEST} element={<Test />} />
-      <Route path={PATHROUTES.QUESTION} element={<Question />} />
-      <Route path={PATHROUTES.ANSWERS} element={<Answers />} />
+    <Route element={<AppProvider />} >
+      <Route path={PublicRoutes.HOME} element={<Layout />} >
+        <Route index element={<Home />} />
+        <Route path={PublicRoutes.TEST} element={<Test />} />
+        <Route path={PublicRoutes.QUESTION} element={<Question />} />
+        <Route path={PublicRoutes.ANSWERS} element={<Answers />} />
+        <Route path={PublicRoutes.LOGIN} element={<Login />} />
+        <Route path={PublicRoutes.SIGNUP} element={<Answers />} />
+        <Route element={<AuthGuard />} >
+          <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
+        </Route>
+      </Route>
     </Route>
   )
 )
 
-
 export default function App() {
   return (
-    <RouterProvider router={router} />
+    <Suspense fallback={<Loader/>}>
+      <RouterProvider router={router} />
+    </Suspense>
   )
 }

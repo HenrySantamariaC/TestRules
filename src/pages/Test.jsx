@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { TimerSolid } from 'iconoir-react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { PATHROUTES, replaceParam } from './../router/routes.js'
+import { PublicRoutes, replaceParam } from './../router/routes.js'
 import BackRouteButton from '../components/General/BackRouteButton'
 import { useTestContext } from '../providers/TestProvider.jsx'
 import { useQuestionContext } from '../providers/QuestionProvider.jsx'
@@ -52,7 +52,7 @@ export default function Test() {
             <Link
                 className="block rounded-xl border border-ui-colors-primary bg-ui-colors-primary py-3 text-center text-slate-50 
                 hover:bg-transparent hover:text-ui-colors-primary focus:outline-none focus:ring active:text-ui-colors-primary"
-                to={replaceParam(PATHROUTES.QUESTION,':testId', selectedTest?.id)}
+                to={replaceParam(PublicRoutes.QUESTION,':testId', selectedTest?.id)}
             >
                 Iniciar
             </Link>
