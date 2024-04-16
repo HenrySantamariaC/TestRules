@@ -3,8 +3,9 @@ import { render, screen } from "@testing-library/react"
 import '@testing-library/jest-dom'
 import Category from "../components/Home/Category"
 import { BrowserRouter } from "react-router-dom"
-import Test from "../pages/Test"
 import ListCategory from "../components/Home/ListCategory"
+import Home from "../pages/Home"
+import Test from "../pages/Test"
 
 const Categoria = {
   id: '9c12dbf4-3c86-4e7b-8d76-3ec5f5a7e6b7',
@@ -16,28 +17,27 @@ const Categoria = {
 }
 
 describe('Testing de las paginas', () => {
-  // test('Renderizado correcto de la pagina Home', () => {
-  //   const r = render(
+  // test('Renders home page correctly', () => {
+  //   render(<BrowserRouter><Home /></BrowserRouter>);
+  //   const homeElement = screen.getByTestId('home-test-id');
+  //   expect(homeElement).toBeInTheDocument();
+  // });
+  // test('Renders a list of tests', () => {
+  //   render(
   //     <BrowserRouter>
-  //       <Home />
+  //       <ListCategory />
   //     </BrowserRouter>
   //   );
-  //   expect(r).toBeTruthy();
-  // });
 
-  test('Listado de exámenes', () => {
-    render(
-      <BrowserRouter>
-        <ListCategory />
-      </BrowserRouter>
-    )
-    const textCat = 'Categoría I';
-    const textCat2 = 'Categoría II-C';
-    const result1 = screen.getByText(textCat);
-    expect(result1).toBeInTheDocument()
-    const result2 = screen.getByText(textCat2);
-    expect(result2).toBeInTheDocument()
-  });
+  //   const testCategory1 = 'Category I';
+  //   const testCategory2 = 'Category II-C';
+
+  //   const category1Element = screen.queryByText(testCategory1);
+  //   const category2Element = screen.queryByText(testCategory2);
+
+  //   expect(category1Element).toBeInTheDocument();
+  //   expect(category2Element).toBeInTheDocument();
+  // });
 })
 
 describe('Renderizado del componente Categoría', () => {

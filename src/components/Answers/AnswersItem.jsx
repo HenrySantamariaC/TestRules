@@ -9,7 +9,7 @@ export default function AnswersItem(props) {
 
     return (
         <div className="w-full bg-ui-colors-neutral p-4 rounded-xl">
-            <h4 className="font-bold">{(num+1).toString().padStart(2,'0')+'.'} {question?.PREGUNTA}</h4>
+            <h4 className="font-bold">{(num + 1).toString().padStart(2, '0') + '.'} {question?.PREGUNTA}</h4>
             <div className="my-6 space-y-3">
                 <ul>
                     {
@@ -20,12 +20,17 @@ export default function AnswersItem(props) {
                         ))
                     }
                 </ul>
-                <h3 className='font-bold'>{isAnswerCorrect ? 'Respuesta correcta. ¡Excelente!' : 'Tu respuesta fue:'}</h3>
-                <div role="alert" className={`rounded-xl border-s-4 p-2 ${isAnswerCorrect ? "border-green-600 bg-green-600/30" : "border-red-600 bg-red-600/30"}`}>
-                    <span className="mt-2 text-sm">
-                        {answer.description}
-                    </span>
-                </div>
+                {
+                    (answer.value) &&
+                    <>
+                        <h3 className='font-bold'>{isAnswerCorrect ? 'Respuesta correcta. ¡Excelente!' : 'Tu respuesta fue:'}</h3>
+                        <div role="alert" className={`rounded-xl border-s-4 p-2 ${isAnswerCorrect ? "border-green-600 bg-green-600/30" : "border-red-600 bg-red-600/30"}`}>
+                            <span className="mt-2 text-sm">
+                                {answer.description}
+                            </span>
+                        </div>
+                    </>
+                }
                 {
                     (!isAnswerCorrect) &&
                     <>
