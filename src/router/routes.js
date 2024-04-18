@@ -2,7 +2,8 @@ export const PublicRoutes = {
     HOME: '/',
     TEST: '/tests/:id',
     QUESTION: '/questions/:testId',
-    ANSWERS: '/review-answers',
+    SCORE: '/score',
+    REVIEW: '/review',
     LOGIN: '/login',
     SIGNUP: '/signup',
 }

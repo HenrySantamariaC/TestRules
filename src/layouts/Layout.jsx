@@ -16,7 +16,7 @@ export default function Layout() {
     }, [])
 
     return (
-        <div className='min-h-screen md:w-[640px] mx-auto text-slate-100 p-4'>
+        <div className='min-h-screen md:w-[640px] mx-auto text-slate-100 '>
             <Toaster />
             <ScrollRestoration />
             <Outlet />

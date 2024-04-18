@@ -12,9 +12,9 @@ export default function ProgressQuestions(props) {
                 aria-valuenow="75"
                 className="block rounded-full bg-slate-50"
             >
-                <span className="block h-3 rounded-full bg-ui-colors-primary" style={{ width: `${((currentProgress + 1) / totalQuestions) * 100}%` }}></span>
+                <span className="block h-3 rounded-full bg-ui-primary" style={{ width: `${((currentProgress + 1) / totalQuestions) * 100}%` }}></span>
             </span>
-            <span className='block text-center mt-2 text-ui-colors-primary'>{currentProgress + 1}/{totalQuestions}</span>
+            <span className='block text-center mt-2 text-ui-primary'>{currentProgress + 1}/{totalQuestions}</span>
         </div>
     )
 }

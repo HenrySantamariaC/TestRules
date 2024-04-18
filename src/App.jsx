@@ -4,6 +4,7 @@ import AuthGuard from './guards/AuthGuard.jsx';
 import AppProvider from './providers/AppProvider.jsx';
 import { Answers, Home, Loader, Login, Profile, Question, Test } from './pages';
 import { Suspense, lazy } from 'react';
+import ReviewAnswers from './pages/ReviewAnswers.jsx';
 
 const Layout = lazy(() => import ('./layouts/Layout'))
 
@@ -14,7 +15,8 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path={PublicRoutes.TEST} element={<Test />} />
         <Route path={PublicRoutes.QUESTION} element={<Question />} />
-        <Route path={PublicRoutes.ANSWERS} element={<Answers />} />
+        <Route path={PublicRoutes.SCORE} element={<Answers />} />
+        <Route path={PublicRoutes.REVIEW} element={<ReviewAnswers />} />
         <Route path={PublicRoutes.LOGIN} element={<Login />} />
         <Route path={PublicRoutes.SIGNUP} element={<Answers />} />
         <Route element={<AuthGuard />} >

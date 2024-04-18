@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTimer } from './useTimer';
-import { TimerSolid } from 'iconoir-react';
+import { Clock } from 'iconoir-react';
 import { useNavigate } from 'react-router-dom';
 import { PublicRoutes } from '../router/routes';
 
@@ -9,15 +9,12 @@ const Timer = () => {
   const navigate = useNavigate()
 
   return (
-    <div className='flex justify-between items-center my-4 px-4 py-2 text-lg bg-ui-colors-neutral rounded-xl'>
-      { isOver && navigate(PublicRoutes.ANSWERS) }
-      <span>Tiempo restante</span>
-      <div className='flex px-2 bg-ui-colors-primary w-fit gap-x-1 font-mono rounded-lg '>
-        <TimerSolid className='w-4' />
-        <span>{currentMinutes}</span>
-        <span>:</span>
-        <span> {currentSeconds}</span>
-      </div>
+    <div className='flex bg-ui-primary rounded-md px-2 py-1 font-bold w-fit gap-x-1 font-mono'>
+      {isOver && navigate(PublicRoutes.SCORE)}
+      <span>{currentMinutes}</span>
+      <span>:</span>
+      <span> {currentSeconds}</span>
+      <Clock className='w-4' />
     </div>
   );
 };

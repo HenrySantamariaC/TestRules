@@ -7,12 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        "ui-colors": {
-          primary: '#8673fe',
-          secondary: '#191923',
+        "ui": {
+          primary: '#6457E3',
+          secondary: '#FFFFFF',
           accent: '#8cd1d2',
           neutral: '#292937',
           base: '#414154',
+          neutral: {
+            100: '#878CA8',
+            200: '#323641',
+            400: '#1F222A',
+            600: '#181A20',
+          }
         },
         cards: {
           orange: '#fe620b',

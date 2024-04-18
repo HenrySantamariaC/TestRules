@@ -29,7 +29,7 @@ export default function CardQuestion(props) {
 
     return (
         <div className="w-full">
-            <h4 className="text-lg text-center">{current?.PREGUNTA}</h4>
+            <h4 className="text-lg">{current?.PREGUNTA}</h4>
             <ul className="my-6 space-y-3">
                 {
                     current?.OPCIONES?.map((item, index) => (
@@ -47,8 +47,8 @@ export default function CardQuestion(props) {
                 endTest ?
                     (
                         <button
-                            className={`block w-full rounded-xl border border-ui-colors-accent bg-ui-colors-accent py-3 text-center text-slate-50
-                                 active:text-ui-colors-primary`}
+                            className={`block w-full rounded-xl border border-ui-accent bg-ui-accent py-3 text-center text-slate-50
+                                 active:text-ui-primary`}
                             disabled={(selectedOption === '')}
                             onClick={handdleFinishTest}
                         >
@@ -57,7 +57,7 @@ export default function CardQuestion(props) {
                     ) :
                     (
                         <button
-                            className={`block w-full rounded-xl border border-ui-colors-primary bg-ui-colors-primary py-3 text-center text-slate-50 
+                            className={`block w-full rounded-xl border border-ui-primary bg-ui-primary py-3 text-center text-slate-50 
                                 active:opacity-80`}
                             disabled={(selectedOption === '')}
                             onClick={handdleNextQuestion}

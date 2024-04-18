@@ -9,16 +9,16 @@ export default function Category(props) {
     return (
         <Link
             to={replaceParam(PublicRoutes.TEST, ':id', item.id)}
-            className={`flex justify-between items-center w-full font-bold rounded-xl p-4 bg-ui-colors-neutral shadow-lg`}
+            className={`flex justify-between items-center w-full rounded-lg p-4 bg-ui-neutral-400 border border-ui-neutral-200`}
         >
             <div className="flex justify-between items-center gap-4">
-                <PageEdit className='text-ui-colors-primary' />
+                <PageEdit className='text-ui-primary' />
                 <div>
-                    <h3 className="text-lg font-medium text-slate-50">Categoría {item.categoria}</h3>
+                    <h3 className="text-lg font-medium text-secondary">Categoría {item.categoria}</h3>
 
                     <div className="flow-root">
                         <div className="p-1 leading-none">
-                            <span className="text-xs font-medium text-slate-300"> Clase {item.clase} </span>
+                            <span className="text-xs font-medium text-ui-neutral-100"> Clase {item.clase} </span>
                         </div>
                     </div>
                 </div>
