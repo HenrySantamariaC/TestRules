@@ -3,7 +3,7 @@ import CardQuestion from '../components/Question/CardQuestion'
 import ProgressQuestions from '../components/Question/ProgressQuestions'
 import { useQuestionContext } from '../providers/QuestionProvider'
 import { useNavigate } from 'react-router-dom'
-import Timer from '../hooks/Timer'
+import Timer from '../components/Question/Timer'
 import { GraduationCap } from 'iconoir-react'
 import BackRouteButton from '../components/General/BackRouteButton'
 

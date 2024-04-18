@@ -3,6 +3,9 @@ import AvatarUser from '../components/General/AvatarUser'
 import { useAuthContext } from '../providers/AuthProvider'
 import { divideDisplayName, getFormattedDate, getGreetingMessage } from '../utilities/utilities'
 import LogoLite from '../components/General/LogoLite'
+import { Settings } from 'iconoir-react'
+import { Link } from 'react-router-dom'
+import { PrivateRoutes } from '../router/routes'
 
 export default function Home() {
   const { user } = useAuthContext()
@@ -15,7 +18,14 @@ export default function Home() {
               <LogoLite className='w-8' />
               <h1 className='font-bold'>Quizzly</h1>
             </div>
-            <h6 className='text-xs'>{getFormattedDate()}</h6>
+            <div className='flex gap-2 items-center'>
+              <h6 className='text-xs'>{getFormattedDate()}</h6>
+              <Link to={PrivateRoutes.PROFILE}>
+                <div className='p-1 hover:bg-ui-neutral-200 rounded-full'>
+                  <Settings className='w-6 h-6' />
+                </div>
+              </Link>
+            </div>
           </div>
           <div className='flex justify-between items-center gap-2'>
             <div>

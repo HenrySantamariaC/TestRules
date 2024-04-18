@@ -10,6 +10,8 @@ export default function TestProvider(props) {
     
     const [ selectedTest, setSelectedTest] = useState({})
 
+    const [ score , setScore ] = useState(0)
+
     const getTestList = async () => {
         const data = await getAllTests()
         setTest(data)
@@ -19,12 +21,18 @@ export default function TestProvider(props) {
         const data = test.find(({id}) => (id === idCode))
         setSelectedTest(data)
     }
+
+    const updateScore = (value) => {
+        setScore(value)
+    }
     
     const dataProvider = {
         test,
         selectedTest,
+        score,
         getTestList,
         changeSelectedTest,
+        updateScore,
     }
 
     return (

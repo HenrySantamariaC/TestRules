@@ -8,18 +8,12 @@ import FailedResult from '../components/Answers/FailedResult'
 import { useTestContext } from '../providers/TestProvider'
 
 export default function Answers() {
-    const [correctAnswers, setCorrectAnswers] = useState(0)
     const { questions, answers } = useQuestionContext()
-    const { test, selectedTest, changeSelectedTest, getTestList } = useTestContext()
-
+    const { selectedTest, score } = useTestContext()
     const navigate = useNavigate()
-    const countCorrectAnswers = () => questions?.reduce((acc, item, index) => {
-        return item.RESPUESTA === answers[index] ? acc + 1 : acc
-    }, 0)
 
     useEffect(() => {
         // (answers.length === 0) && navigate('/')
-        setCorrectAnswers(countCorrectAnswers())
     }, [])
 
 
@@ -30,12 +24,11 @@ export default function Answers() {
                     <Xmark className='w-8' />
                 </Link>
                 <span className='sr-only'>Simulacro finalizado</span>
-                {correctAnswers}
             </div>
             {
-                (correctAnswers >= selectedTest?.minAprobar)
-                    ? <SuccessResult correctAnswers={correctAnswers} totalQuestions={questions?.length} />
-                    : <FailedResult correctAnswers={correctAnswers} totalQuestions={questions?.length} />
+                (score >= selectedTest?.minAprobar)
+                    ? <SuccessResult correctAnswers={score} totalQuestions={questions?.length} />
+                    : <FailedResult correctAnswers={score} totalQuestions={questions?.length} />
             }
             <div className='space-y-4'>
                 <Link

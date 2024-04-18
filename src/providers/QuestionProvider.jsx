@@ -30,6 +30,10 @@ export default function QuestionProvider(props) {
         data[position] = answer
         setAnswers(data)
     }
+   
+    const getCorrectAnswers = () => questions?.reduce((acc, item, index, arr) => {
+        return item.RESPUESTA === answers[index].value ? acc + 1 : acc
+    }, 0)
 
     const dataProvider = {
         questions,
@@ -38,6 +42,7 @@ export default function QuestionProvider(props) {
         getQuestionList,
         nextQuestion,
         registerAnswer,
+        getCorrectAnswers,
     }
 
     return (
