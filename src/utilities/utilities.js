@@ -4,7 +4,7 @@ export const getRandomNumber = (min, max) => {
 export const divideDisplayName = (name = 'Demo') => {
     let fullName = name?.split(" ")
 
-    if (fullName.length < 2) return name
+    if (fullName?.length < 2) return name
     return fullName?.slice(0, 2).join(" ")
 }
 

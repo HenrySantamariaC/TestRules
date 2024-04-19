@@ -5,6 +5,7 @@ import AppProvider from './providers/AppProvider.jsx';
 import { Answers, Home, Loader, Login, Profile, Question, Test } from './pages';
 import { Suspense, lazy } from 'react';
 import ReviewAnswers from './pages/ReviewAnswers.jsx';
+import Settings from './pages/Settings.jsx';
 
 const Layout = lazy(() => import ('./layouts/Layout'))
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
     <Route element={<AppProvider />} >
       <Route path={PublicRoutes.HOME} element={<Layout />} >
         <Route index element={<Home />} />
+        <Route path={PublicRoutes.SETTINGS} element={<Settings />} />
         <Route path={PublicRoutes.TEST} element={<Test />} />
         <Route path={PublicRoutes.QUESTION} element={<Question />} />
         <Route path={PublicRoutes.SCORE} element={<Answers />} />

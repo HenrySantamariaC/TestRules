@@ -2,6 +2,9 @@ import { CardWallet, CheckCircleSolid, NavArrowRight, TransitionRight } from "ic
 import BackRouteButton from "../components/General/BackRouteButton";
 import { useAuthContext } from "../providers/AuthProvider";
 import { signOutSession } from "../firebase";
+import ScreenLayout from "../layouts/ScreenLayout";
+import HeaderScreen from "../components/General/HeaderScreen";
+import AvatarUser from "../components/General/AvatarUser";
 
 export default function Profile() {
   const { user, setAuthUser } = useAuthContext()
@@ -19,19 +22,9 @@ export default function Profile() {
   }
 
   return (
-    <>
-      <div className='flex justify-between items-center my-4'>
-        <h1 className='text-3xl font-bold'>Perfil</h1>
-        <BackRouteButton />
-      </div>
-      <div className="w-24 h-24 mx-auto my-8 outline-none rounded-full ring-offset-2 ring-ui-colors-neutral ring-2"
-        onClick={() => null}
-      >
-        <img
-          src={getAvatar()}
-          className="w-full h-full rounded-full"
-        />
-      </div>
+    <ScreenLayout>
+      <HeaderScreen title='Perfil'/>
+      <AvatarUser className="w-24 mx-auto border border-ui-secondary rounded-full" />
       <span className="inline-block w-full text-xl text-center">{user?.displayName} <CheckCircleSolid  className='inline-block w-4 text-ui-colors-primary' /> </span>
       <span className="inline-block w-full text-sm text-center">{user?.email}</span>
       <div className="mt-4 divide-y-2 divide-ui-colors-base rounded-xl overflow-hidden bg-ui-colors-neutral">
@@ -72,6 +65,6 @@ export default function Profile() {
           <NavArrowRight />
         </button>
       </div>
-    </>
+    </ScreenLayout>
   )
 }

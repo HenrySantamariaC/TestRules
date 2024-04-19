@@ -3,21 +3,21 @@ import { useQuestionContext } from "../providers/QuestionProvider"
 import { useEffect } from "react"
 import AnswersItem from "../components/Answers/AnswersItem"
 import { PublicRoutes } from "../router/routes"
+import ScreenLayout from "../layouts/ScreenLayout"
+import HeaderScreen from "../components/General/HeaderScreen"
 
 export default function ReviewAnswers() {
     const { questions, answers } = useQuestionContext()
     const navigate = useNavigate()
 
     useEffect(() => {
-        (answers.length === 0) && navigate('/')
+        (questions.length === 0) && navigate('/')
     }, [])
 
-  return (
-    <div className="w-full p-4">
-            <div className='flex justify-between items-center my-4'>
-                <h4 className='text-3xl font-bold'>Revisión de las respuestas</h4>
-            </div>
-            <ul className="my-6 space-y-3">
+    return (
+        <ScreenLayout>
+            <HeaderScreen title='Revisión de las respuestas' />
+            <ul className="shrink space-y-4">
                 {
                     questions.map((item, index) => (
                         <AnswersItem question={item} answer={answers[index]} num={index} key={index} />
@@ -31,6 +31,6 @@ export default function ReviewAnswers() {
             >
                 Ir a Inicio
             </Link>
-        </div>
-  )
+        </ScreenLayout>
+    )
 }

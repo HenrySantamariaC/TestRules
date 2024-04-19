@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import CardQuestion from '../components/Question/CardQuestion'
-import ProgressQuestions from '../components/Question/ProgressQuestions'
 import { useQuestionContext } from '../providers/QuestionProvider'
 import { useNavigate } from 'react-router-dom'
 import Timer from '../components/Question/Timer'
 import { GraduationCap } from 'iconoir-react'
-import BackRouteButton from '../components/General/BackRouteButton'
+import ScreenLayout from '../layouts/ScreenLayout'
+import HeaderScreen from '../components/General/HeaderScreen'
 
 export default function Question() {
     const { questions, current, nextQuestion } = useQuestionContext()
     const [endTest, setEndTest] = useState(false)
     const navigate = useNavigate()
 
-    const handdleNextQuestion = () => {
+    const handleNextQuestion = () => {
         setEndTest((questions?.length - 1) === (current.position + 1))
         nextQuestion()
     }
@@ -22,14 +22,12 @@ export default function Question() {
     }, [])
 
     return (
-        <div className='p-4'>
-            {/* <ProgressQuestions currentProgress={current.position} totalQuestions={questions?.length} /> */}
-            <div className='flex items-center justify-between'>
-                <BackRouteButton label='Atrás' />
+        <ScreenLayout>
+            <HeaderScreen>
                 <Timer />
-            </div>
+            </HeaderScreen>
             <div className='px-4'>
-                <div className='flex gap-2 my-8 items-end text-xl font-bold'>
+                <div className='flex gap-4 my-4 items-end text-xl font-bold'>
                     <GraduationCap className='w-8 h-8' />
                     <span>
                         Pregunta {current.position + 1}
@@ -39,9 +37,9 @@ export default function Question() {
                     current={current.question}
                     position={current.position}
                     endTest={endTest}
-                    handdleNextQuestion={handdleNextQuestion}
+                    handleNextQuestion={handleNextQuestion}
                 />
             </div>
-        </div>
+        </ScreenLayout>
     )
 }

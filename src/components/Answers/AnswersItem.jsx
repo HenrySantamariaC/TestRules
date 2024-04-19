@@ -8,14 +8,14 @@ export default function AnswersItem(props) {
     const correctAnswer = (question.OPCIONES.find(({ value }) => (value === question.RESPUESTA)))
 
     return (
-        <div className="w-full bg-ui-neutral-400 p-4 rounded-xl">
+        <div className="w-full bg-ui-neutral-400 border border-ui-neutral-200 p-4 rounded-xl">
             <h4 className="font-bold">{(num + 1).toString().padStart(2, '0') + '.'} {question?.PREGUNTA}</h4>
             <div className="my-6 space-y-3">
                 <ul>
                     {
                         question?.OPCIONES?.map((item, index) => (
                             <li className='text-slate-400' key={index}>
-                                <span className={item.value === answer.value ? "line-through" : ""}>{item.description}</span>
+                                <span className={item?.value === answer.value ? "line-through" : ""}>{item?.description}</span>
                             </li>
                         ))
                     }

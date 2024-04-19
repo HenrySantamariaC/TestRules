@@ -5,7 +5,7 @@ import { divideDisplayName, getFormattedDate, getGreetingMessage } from '../util
 import LogoLite from '../components/General/LogoLite'
 import { Settings } from 'iconoir-react'
 import { Link } from 'react-router-dom'
-import { PrivateRoutes } from '../router/routes'
+import { PrivateRoutes, PublicRoutes } from '../router/routes'
 
 export default function Home() {
   const { user } = useAuthContext()
@@ -20,7 +20,7 @@ export default function Home() {
             </div>
             <div className='flex gap-2 items-center'>
               <h6 className='text-xs'>{getFormattedDate()}</h6>
-              <Link to={PrivateRoutes.PROFILE}>
+              <Link to={PublicRoutes.SETTINGS}>
                 <div className='p-1 hover:bg-ui-neutral-200 rounded-full'>
                   <Settings className='w-6 h-6' />
                 </div>

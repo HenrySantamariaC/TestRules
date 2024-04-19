@@ -6,6 +6,8 @@ import BackRouteButton from '../components/General/BackRouteButton'
 import { useTestContext } from '../providers/TestProvider.jsx'
 import { useQuestionContext } from '../providers/QuestionProvider.jsx'
 import QuestionSlide from '../assets/PNG/question-slide.png'
+import ScreenLayout from '../layouts/ScreenLayout.jsx'
+import HeaderScreen from '../components/General/HeaderScreen.jsx'
 
 export default function Test() {
     const { id } = useParams()
@@ -25,9 +27,8 @@ export default function Test() {
 
 
     return (
-        <div className='flex flex-col gap-4 p-4 text-sm'>
-            <div className='flex justify-between items-center'>
-                <BackRouteButton label='Atrás' />
+        <ScreenLayout>
+            <HeaderScreen>
                 <div className='flex gap-2'>
                     <span className="whitespace-nowrap rounded-full border-2 font-bold border-ui-primary px-2.5 py-0.5 text-sm text-ui-primary">
                         Simulacro
@@ -36,7 +37,7 @@ export default function Test() {
                         Licencia {selectedTest?.clase} {selectedTest?.categoria}
                     </span>
                 </div>
-            </div>
+            </HeaderScreen>
             <img src={QuestionSlide} alt="Quizzly slider" className='rounded-md' />
             <h2 className='text-lg font-bold'>Evaluación {selectedTest?.clase} {selectedTest?.categoria}</h2>
             <div className='grid grid-cols-2 divide-x divide-ui-neutral-200 border-y border-spacing-1 py-1 mxau border-ui-neutral-200'>
@@ -62,6 +63,6 @@ export default function Test() {
             >
                 Iniciar
             </Link>
-        </div>
+        </ScreenLayout>
     )
 }

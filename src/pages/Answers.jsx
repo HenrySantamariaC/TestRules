@@ -1,48 +1,45 @@
-import React, { useEffect, useState } from 'react'
 import { useQuestionContext } from '../providers/QuestionProvider'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SuccessResult from '../components/Answers/SuccessResult'
-import { Xmark } from 'iconoir-react'
 import { PublicRoutes } from '../router/routes'
 import FailedResult from '../components/Answers/FailedResult'
 import { useTestContext } from '../providers/TestProvider'
+import ScreenLayout from '../layouts/ScreenLayout'
+import HeaderScreen from '../components/General/HeaderScreen'
+import { HomeSimpleDoor, PageEdit } from 'iconoir-react'
 
 export default function Answers() {
-    const { questions, answers } = useQuestionContext()
+    const { questions } = useQuestionContext()
     const { selectedTest, score } = useTestContext()
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        // (answers.length === 0) && navigate('/')
-    }, [])
-
 
     return (
-        <div className='min-h-dvh p-4 flex flex-col justify-between'>
-            <div className='flex justify-between items-center'>
-                <Link to={PublicRoutes.HOME} className='p-1 bg-ui-neutral-400 rounded-md border border-ui-neutral-200' >
-                    <Xmark className='w-8' />
-                </Link>
-                <span className='sr-only'>Simulacro finalizado</span>
+        <ScreenLayout>
+            <div className='flex flex-col h-[calc(100dvh-32px)] justify-between'>
+                <HeaderScreen isClose />
+                {
+                    (score >= selectedTest?.minAprobar)
+                        ? <SuccessResult score={score} total={questions?.length} />
+                        : <FailedResult score={score} total={questions?.length} />
+                }
+                <div className='flex gap-4 py-14 justify-center'>
+                    <Link
+                        className=''
+                        to={PublicRoutes.HOME} >
+                        <button className='flex flex-col items-center justify-center h-14 aspect-square bg-ui-primary rounded-md'>
+                            <HomeSimpleDoor className='w-6 h-6 mx-auto' />
+                            <span className='text-xs'>Inicio</span>
+                        </button>
+                    </Link>
+                    <Link
+                        className=''
+                        to={PublicRoutes.REVIEW} >
+                        <button className='flex flex-col items-center justify-center h-14 aspect-square bg-ui-neutral-400 rounded-md border border-ui-neutral-200'>
+                            <PageEdit className='w-6 h-6 mx-auto' />
+                            <span className='text-xs'>Revisar</span>
+                        </button>
+                    </Link>
+                </div>
             </div>
-            {
-                (score >= selectedTest?.minAprobar)
-                    ? <SuccessResult correctAnswers={score} totalQuestions={questions?.length} />
-                    : <FailedResult correctAnswers={score} totalQuestions={questions?.length} />
-            }
-            <div className='space-y-4'>
-                <Link
-                    to={PublicRoutes.REVIEW}
-                    className="block w-full px-4 py-2 bg-ui-primary hover:bg-ui-primary/70 active:bg-ui-primary text-center rounded-md duration-150"
-                >
-                    Revisa tus respuestas
-                </Link>
-                <button
-                    className="w-full px-4 py-2 border border-ui-neutral-200 rounded-md bg-ui-neutral-400 hover:bg-ui-neutral-200 duration-150 active:bg-ui-neutral-400"
-                >
-                    Ir al inicio
-                </button>
-            </div>
-        </div>
+        </ScreenLayout>
     )
 }

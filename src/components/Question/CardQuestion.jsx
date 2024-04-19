@@ -7,7 +7,7 @@ import { PublicRoutes } from '../../router/routes'
 import { useTestContext } from '../../providers/TestProvider'
 
 export default function CardQuestion(props) {
-    const { current, position, endTest, handdleNextQuestion: handleNextQuestion } = props
+    const { current, position, endTest, handleNextQuestion } = props
     const { registerAnswer, getCorrectAnswers } = useQuestionContext()
     const { updateScore } = useTestContext()
     const [selectedOption, setSelectedOption] = useState('')
