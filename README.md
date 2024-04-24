@@ -19,7 +19,7 @@ Quizzly App es una aplicación web desarrollada con React que simula los exámen
 
 **Enlace a la aplicación:**
 
-[Quizzly Website](https://quizly.app/)
+[Quizzly Website](https://quizly-app.pages.dev/)
 
 **Uso:**
 

@@ -14,9 +14,8 @@ export default function AuthLoader() {
     const startPageLogin = async () => {
         const resultAuth = await getRedirectResultGoogleProvider()
         if (resultAuth === null) {
-            timeoutId.current = await sleep(500)
+            timeoutId.current = await sleep(1000)
             navigate(PublicRoutes.LOGIN)
-            console.log('error')
             return
         } 
         if (resultAuth.user) {
