@@ -2,7 +2,7 @@ import LogoColorful from "../components/General/LogoColorful"
 
 export default function Loader() {
     return (
-        <div className="flex w-screen h-screen justify-center items-center">
+        <div className="flex w-screen h-dvh justify-center items-center">
             <div className="flex flex-col items-center justify-between gap-4">
                 <LogoColorful className="w-14"/>
                 <div className="flex flex-row gap-2">

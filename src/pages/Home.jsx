@@ -20,7 +20,7 @@ export default function Home() {
             </div>
             <div className='flex gap-2 items-center'>
               <h6 className='text-xs'>{getFormattedDate()}</h6>
-              <Link to={PublicRoutes.SETTINGS}>
+              <Link to={PrivateRoutes.SETTINGS}>
                 <div className='p-1 hover:bg-ui-neutral-200 rounded-full'>
                   <Settings className='w-6 h-6' />
                 </div>
@@ -36,7 +36,7 @@ export default function Home() {
           </div>
         </div>
         <div className='p-4 relative before:absolute before:bottom-0 before:left-0 before:w-full before:h-1/2 before:rounded-t-lg before:bg-ui-neutral-600'>
-          <div className='p-4 bg-ui-neutral-400 rounded-lg shadow-md relative'>
+          <div className='p-4 bg-ui-neutral-400 rounded-md shadow-md relative'>
             <h4 className='text-lg font-bold'>Descubre</h4>
             <span className='text-xs'>Exámenes de conocimientos para obtener tu licencia de conducir en Perú</span>
           </div>

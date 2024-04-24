@@ -9,7 +9,7 @@ export default function Category(props) {
     return (
         <Link
             to={replaceParam(PublicRoutes.TEST, ':id', item.id)}
-            className={`flex justify-between items-center w-full rounded-lg p-4 bg-ui-neutral-400 border border-ui-neutral-200`}
+            className={`flex justify-between items-center w-full rounded-md p-4 bg-ui-neutral-400 border border-ui-neutral-200`}
         >
             <div className="flex justify-between items-center gap-4">
                 <PageEdit className='text-ui-primary' />

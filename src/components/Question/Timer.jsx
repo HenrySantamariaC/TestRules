@@ -7,7 +7,7 @@ import { useQuestionContext } from '../../providers/QuestionProvider';
 import { useTestContext } from '../../providers/TestProvider';
 
 const Timer = () => {
-  const { currentMinutes, currentSeconds, isOver } = useTimer('00:00:00:10')
+  const { currentMinutes, currentSeconds, isOver } = useTimer('00:00:40:00')
   const { getCorrectAnswers } = useQuestionContext()
   const { updateScore } = useTestContext()
   const navigate = useNavigate()

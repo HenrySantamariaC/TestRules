@@ -116,9 +116,9 @@ export const errorList = {
 };
 
 export const firebaseErrorToText = error => {
-  return !!errorList[error.code]
-    ? errorList[error.code]
-    : !!error.message
-    ? error.message
+  return !!errorList[error?.code]
+    ? errorList[error?.code]
+    : !!error?.message
+    ? error?.message
     : 'Ocurrió un error inesperado';
 };

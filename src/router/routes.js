@@ -1,15 +1,16 @@
 export const PublicRoutes = {
     HOME: '/',
-    SETTINGS: '/settings',
     TEST: '/tests/:id',
     QUESTION: '/questions/:testId',
     SCORE: '/score',
     REVIEW: '/review',
+    AUTH_LOADING: '/auth-loading',
     LOGIN: '/login',
     SIGNUP: '/signup',
 }
 
 export const PrivateRoutes = {
+    SETTINGS: '/settings',
     PROFILE: '/profile'
 }
 

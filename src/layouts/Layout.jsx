@@ -16,8 +16,12 @@ export default function Layout() {
     }, [])
 
     return (
-        <div className='min-h-screen md:w-[640px] mx-auto text-slate-100 '>
-            <Toaster />
+        <div className='min-h-screen md:w-[640px] mx-auto text-ui-secondary '>
+            <Toaster
+                toastOptions={{
+                    className: '!bg-ui-neutral-400 border !border-ui-neutral-200 !text-ui-secondary',
+                }}
+            />
             <ScrollRestoration />
             <Outlet />
         </div>
