@@ -1,6 +1,16 @@
-import { GoogleAuthProvider, getAuth, getRedirectResult, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut } from "firebase/auth";
 import { firebaseErrorToText } from "./firebaseErrorToText";
 import toast from "react-hot-toast";
+import {
+  getAuth, 
+  signOut,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  signInWithRedirect, 
+  getRedirectResult, 
+  signInWithPopup,
+  sendPasswordResetEmail, 
+} from "firebase/auth";
 
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
@@ -14,6 +24,27 @@ export async function loginWithEmailAndPassword(email, password) {
   } catch (error) {
     toast.error(firebaseErrorToText(error))
     return null
+  }
+}
+
+export async function signupWithEmailAndPassword(email, password) {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+    const user = userCredential.user
+    toast.success("¡Registro de usuario correctamente!")
+    return user
+  } catch (error) {
+    toast.error(firebaseErrorToText(error))
+    return null
+  }
+}
+
+export async function resetPasswordWithEmail(email) { 
+  try {
+    await sendPasswordResetEmail(auth, email)
+    toast.success("Se ha enviado un correo para restablecer la contraseña")
+  } catch (error) {
+    toast.error(firebaseErrorToText(error))
   }
 }
 

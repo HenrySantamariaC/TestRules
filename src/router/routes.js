@@ -7,6 +7,7 @@ export const PublicRoutes = {
     AUTH_LOADING: '/auth-loading',
     LOGIN: '/login',
     SIGNUP: '/signup',
+    RESET_PASSWORD: '/reset-password',
 }
 
 export const PrivateRoutes = {
