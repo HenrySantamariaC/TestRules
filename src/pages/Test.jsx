@@ -57,7 +57,7 @@ export default function Test() {
             <Link
                 className="block rounded-xl border border-ui-primary bg-ui-primary py-3 text-center text-slate-50 
                 hover:bg-transparent hover:text-ui-primary focus:outline-none focus:ring active:text-ui-primary"
-                to={replaceParam(PublicRoutes.QUESTION, ':testId', selectedTest?.id)}
+                to={replaceParam(PublicRoutes.QUESTION, ':code', selectedTest?.code)}
             >
                 Iniciar
             </Link>
