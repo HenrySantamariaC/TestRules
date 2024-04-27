@@ -10,6 +10,7 @@ export default function AnswersItem(props) {
     return (
         <div className="w-full bg-ui-neutral-400 border border-ui-neutral-200 p-4 rounded-xl">
             <h4 className="font-bold">{(num + 1).toString().padStart(2, '0') + '.'} {question?.PREGUNTA}</h4>
+            { question?.IMAGEN && <img className="mx-auto h-28" src={`https://sierdgtt.mtc.gob.pe${question.IMAGEN}`} alt={question.IMAGEN} /> }
             <div className="my-6 space-y-3">
                 <ul>
                     {
@@ -26,7 +27,7 @@ export default function AnswersItem(props) {
                         <h3 className='font-bold'>{isAnswerCorrect ? 'Respuesta correcta. ¡Excelente!' : 'Tu respuesta fue:'}</h3>
                         <div role="alert" className={`rounded-xl border-s-4 p-2 ${isAnswerCorrect ? "border-green-600 bg-green-600/30" : "border-red-600 bg-red-600/30"}`}>
                             <span className="mt-2 text-sm">
-                                {answer.description}
+                                {answer?.description}
                             </span>
                         </div>
                     </>
@@ -37,7 +38,7 @@ export default function AnswersItem(props) {
                         <h3 className='font-bold'>La respuesta correcta es:</h3>
                         <div role="alert" className="rounded-xl border-s-4 p-2 border-yellow-600 bg-yellow-600/30">
                             <span className="mt-2 text-sm">
-                                {correctAnswer.description}
+                                {correctAnswer?.description}
                             </span>
                         </div>
                     </>
@@ -45,7 +46,7 @@ export default function AnswersItem(props) {
                 {
                     (question.FUNDAMENTO !== '') &&
                     <>
-                        <h3 className='font-bold'>Fundamentación</h3>
+                        <h3 className='font-bold'>Fundamento</h3>
                         <div role="alert" className="rounded-xl border-s-4 p-2 border-blue-600 bg-blue-600/30">
                             <span className="mt-2 text-sm">
                                 {question.FUNDAMENTO}

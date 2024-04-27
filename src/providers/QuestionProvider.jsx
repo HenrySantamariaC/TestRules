@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
-import { getRandomQuestionList } from '../services/questionsBiic.service'
+import { fetchQuestions } from '../services/questionsBiic.service'
 
 const questionContext = createContext()
 
@@ -10,8 +10,8 @@ export default function QuestionProvider(props) {
     const [answers, setAnswers] = useState([])
     const [current, setCurrent] = useState({})
 
-    const getQuestionList = async () => {
-        let data = await getRandomQuestionList()
+    const getQuestionList = async (licenseCode) => {
+        let data = await fetchQuestions(licenseCode)
         setQuestions(data)
         setAnswers(data.map(() => ({})))
         setCurrent({position: 0, question: data[0]})

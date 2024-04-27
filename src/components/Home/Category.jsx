@@ -8,7 +8,7 @@ export default function Category(props) {
 
     return (
         <Link
-            to={replaceParam(PublicRoutes.TEST, ':id', item.id)}
+            to={replaceParam(PublicRoutes.TEST, ':code', item.code)}
             className={`flex justify-between items-center w-full rounded-md p-4 bg-ui-neutral-400 border border-ui-neutral-200`}
         >
             <div className="flex justify-between items-center gap-4">

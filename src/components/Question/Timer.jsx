@@ -15,7 +15,6 @@ const Timer = () => {
   useEffect(() => {
     if (isOver) {
       const score = getCorrectAnswers()
-      console.log(score)
       updateScore(score)
       navigate(PublicRoutes.SCORE)
     }

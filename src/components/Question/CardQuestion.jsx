@@ -35,6 +35,7 @@ export default function CardQuestion(props) {
     return (
         <div className="w-full">
             <h4 className="text-lg">{current?.PREGUNTA}</h4>
+            { current?.IMAGEN && <img className="mx-auto" src={`https://sierdgtt.mtc.gob.pe${current.IMAGEN}`} alt={current.IMAGEN} /> }
             <ul className="my-6 space-y-3">
                 {
                     current?.OPCIONES?.map((item, index) => (

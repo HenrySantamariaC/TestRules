@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { TimerSolid } from 'iconoir-react'
+import React, { useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { PublicRoutes, replaceParam } from './../router/routes.js'
-import BackRouteButton from '../components/General/BackRouteButton'
 import { useTestContext } from '../providers/TestProvider.jsx'
 import { useQuestionContext } from '../providers/QuestionProvider.jsx'
 import QuestionSlide from '../assets/PNG/question-slide.png'
@@ -10,15 +8,15 @@ import ScreenLayout from '../layouts/ScreenLayout.jsx'
 import HeaderScreen from '../components/General/HeaderScreen.jsx'
 
 export default function Test() {
-    const { id } = useParams()
+    const { code } = useParams()
     const navigate = useNavigate()
     const { test, selectedTest, changeSelectedTest, getTestList } = useTestContext()
     const { getQuestionList } = useQuestionContext()
 
     const loadDataTest = async () => {
         (test.length === 0) && navigate('/')
-        await changeSelectedTest(id)
-        await getQuestionList()
+        await changeSelectedTest(code)
+        await getQuestionList(code)
     }
 
     useEffect(() => {

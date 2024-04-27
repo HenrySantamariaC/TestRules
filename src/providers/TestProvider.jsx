@@ -17,8 +17,8 @@ export default function TestProvider(props) {
         setTest(data)
     }
 
-    const changeSelectedTest = async (idCode) => {
-        const data = test.find(({id}) => (id === idCode))
+    const changeSelectedTest = async (valueCode) => {
+        const data = test.find(({code}) => (code === valueCode))
         setSelectedTest(data)
     }
 
