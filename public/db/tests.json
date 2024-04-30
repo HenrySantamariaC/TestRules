@@ -1,20 +1,74 @@
 [
-    {
-      "id": "9c12dbf4-3c86-4e7b-8d76-3ec5f5a7e6b7",
-      "code": "AI",
-      "clase": "A",
-      "categoria": "I",
-      "duracion": 40,
-      "totalPreguntas": 40,
-      "minAprobar": 35
-    },
-    {
-      "id": "6e2f1a2c-3d2f-4f46-9aef-4f2d9b9c5abf",
-      "code": "BIIC",
-      "clase": "B",
-      "categoria": "II-C",
-      "duracion": 40,
-      "totalPreguntas": 40,
-      "minAprobar": 35
-    }
-  ]
+  {
+    "code": "A-I",
+    "clase": "A",
+    "categoria": "I",
+    "duracion": 40,
+    "totalPreguntas": 40,
+    "minAprobar": 35
+  },
+  {
+    "code": "AII-A",
+    "clase": "AII",
+    "categoria": "A",
+    "duracion": 40,
+    "totalPreguntas": 40,
+    "minAprobar": 35
+  },
+  {
+    "code": "AII-B",
+    "clase": "AII",
+    "categoria": "B",
+    "duracion": 40,
+    "totalPreguntas": 40,
+    "minAprobar": 35
+  },
+  {
+    "code": "AIII-A",
+    "clase": "AIII",
+    "categoria": "A",
+    "duracion": 40,
+    "totalPreguntas": 40, 
+    "minAprobar": 35
+  },
+  {
+    "code": "AIII-B",
+    "clase": "AIII",
+    "categoria": "B",
+    "duracion": 40,
+    "totalPreguntas": 40, 
+    "minAprobar": 35
+  },
+  {
+    "code": "AIII-C",
+    "clase": "AIII",
+    "categoria": "C",
+    "duracion": 40,
+    "totalPreguntas": 40, 
+    "minAprobar": 35
+  },
+  {
+    "code": "BII-A",
+    "clase": "BII",
+    "categoria": "A",
+    "duracion": 40,
+    "totalPreguntas": 40, 
+    "minAprobar": 35
+  },
+  {
+    "code": "BII-B",
+    "clase": "BII",
+    "categoria": "B",
+    "duracion": 40,
+    "totalPreguntas": 40, 
+    "minAprobar": 35
+  },
+  {
+    "code": "BII-C",
+    "clase": "BII",
+    "categoria": "C",
+    "duracion": 40,
+    "totalPreguntas": 40, 
+    "minAprobar": 35
+  }
+]
