@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { PublicRoutes, replaceParam } from './../router/routes.js'
 import { useTestContext } from '../providers/TestProvider.jsx'
 import { useQuestionContext } from '../providers/QuestionProvider.jsx'
 import QuestionSlide from '../assets/PNG/question-slide.png'
 import ScreenLayout from '../layouts/ScreenLayout.jsx'
 import HeaderScreen from '../components/General/HeaderScreen.jsx'
+import FillButton from '../components/General/FillButton.jsx'
 
 export default function Test() {
     const { code } = useParams()
@@ -16,9 +17,7 @@ export default function Test() {
     const loadDataTest = async () => {
         (test.length === 0) && navigate('/')
         await changeSelectedTest(code)
-        await getQuestionList(code)
     }
-
     useEffect(() => {
         loadDataTest()
     }, [])
@@ -54,13 +53,12 @@ export default function Test() {
                 <p>Los componentes de este examen son temas de: Obligaciones del Conductor en materia de tránsito, Inspección Técnica Vehicular, Reglamento Nacional de Vehículos, Reglamento Nacional de Responsabilidad Civil y Seguros Obligatorios de Accidentes de Tránsito, Reglamento de Placa Única Nacional de Rodaje y Primeros Auxilios, en caso de accidentes de tránsito.</p>
                 <p>Finalizada la prueba, usted tendrá acceso a la revision de todas las respuestas correctas para que identifique los temas que le falta reforzar, con miras a estar aptos para el examen de Licencia de Conducir.</p>
             </div>
-            <Link
-                className="block rounded-xl border border-ui-primary bg-ui-primary py-3 text-center text-slate-50 
-                hover:bg-transparent hover:text-ui-primary focus:outline-none focus:ring active:text-ui-primary"
-                to={replaceParam(PublicRoutes.QUESTION, ':code', selectedTest?.code)}
-            >
-                Iniciar
-            </Link>
+            <FillButton
+                action={() => getQuestionList(code)}
+                to={() => navigate(replaceParam(PublicRoutes.QUESTION, ':code', selectedTest?.code))}
+                >
+                <span>Iniciar</span>
+            </FillButton>
         </ScreenLayout>
     )
 }
